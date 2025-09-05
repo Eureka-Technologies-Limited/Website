@@ -1,0 +1,32 @@
+import React from "react";
+
+function GettingStarted() {
+    return (
+        <section
+            id="getting-started"
+            className="mx-auto w-1/2 my-10 m-6 px-6 py-8 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#1D3557] via-[#233B77] to-[#2E4B8C] rounded-2xl shadow-lg text-white"
+        >
+            <div className="mb-6 text-center md:mb-0 md:text-left">
+                <h2 className="mb-2 text-2xl font-bold md:text-3xl">
+                    Ready to join the Eureka Network?
+                </h2>
+                <p className="max-w-xl text-sm text-gray-300 md:text-base">
+                    Join our community of innovators and developers. Whether you're looking to build, collaborate, or simply explore, the Eureka Network is your gateway to the future of technology. Sign up today and start your journey with us!
+                </p>
+            </div>
+
+            <div className="flex w-full justify-center md:w-auto md:justify-end">
+                <a
+                    href="#get-started"
+                    className="px-6 py-3 font-semibold text-white rounded-full shadow-md bg-gradient-to-r from-[#F57A55] to-[#D33B41] transition duration-300 hover:opacity-90"
+                >
+                    Get Started
+                </a>
+            </div>
+        </section>
+
+    );
+}
+
+export default GettingStarted;
+
