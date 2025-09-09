@@ -14,7 +14,7 @@ const ProductData = [
             "Analytics dashboard",
         ],
         image: PrintNest,
-        link: "/PrintNest",
+        link: "#",
         comingSoon: false,
     },
     {

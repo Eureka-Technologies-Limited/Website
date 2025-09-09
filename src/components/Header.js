@@ -24,8 +24,7 @@ function Header() {
                         Eureka Technologies
                     </h1>
                 </Link>
-
-                {/* Desktop Nav */}
+                {/*
                 <nav className="hidden md:flex">
                     <ul className="flex space-x-6 text-l">
                         <li>
@@ -38,11 +37,9 @@ function Header() {
                                 Products
                             </Link>
                         </li>
-                        {/* <li><Link to="/dashboard">Dashboard</Link></li> */}
                     </ul>
                 </nav>
 
-                {/* Mobile menu toggle */}
                 <button
                     className="md:hidden text-white text-2xl focus:outline-none"
                     onClick={toggleMenu}
@@ -52,7 +49,6 @@ function Header() {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
             {isOpen && (
                 <div className="md:hidden bg-darkBlue w-full px-4 pb-4">
                     <ul className="flex flex-col space-y-4">
@@ -69,6 +65,8 @@ function Header() {
                     </ul>
                 </div>
             )}
+*/}
+            </div>
         </header>
     );
 }

@@ -7,7 +7,7 @@ function GettingStarted() {
     return (
         <section
             id="getting-started"
-            className="mx-auto w-1/2 my-10 m-6 px-6 py-8 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#1D3557] via-[#233B77] to-[#2E4B8C] rounded-2xl shadow-lg text-white"
+            className="mx-auto w-full md:w-4/5 lg:w-2/3 my-6 md:my-10 px-4 sm:px-6 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#1D3557] via-[#233B77] to-[#2E4B8C] rounded-2xl shadow-lg text-white"
         >
             <div className="mb-6 text-center md:mb-0 md:text-left">
                 <h2 className="mb-2 text-2xl font-bold md:text-3xl">
