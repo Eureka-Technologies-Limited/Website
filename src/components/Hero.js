@@ -1,7 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import HexagonPulse from './pulse';
 
 function Hero() {
+    const navigate = useNavigate();
+
     return (
         <section className="py-20 px-6 text-white">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
@@ -10,21 +14,15 @@ function Hero() {
                         Inovate. Build. Share.
                     </h2>
                     <p className="text-lg md:text-xl text-white/80 mb-8">
-                        Empoweing developers and makers with tools designed to streamline creation, porblem solving and collabroeation.
+                        Empowering developers and makers with tools designed to streamline creation, problem solving and collaboration.
                     </p>
                     <div className="flex flex-col sm:flex-row sm:justify-start justify-center gap-4">
-                        <a
-                            href="/controller"
+                        <text
+                            onClick={() => navigate("/getting-started")}
                             className="bg-[#F57A55] hover:bg-[#D33B41] text-white px-6 py-3 rounded-2xl text-lg transition text-center"
                         >
                             Get Started
-                        </a>
-                        <a
-                            href="#learn"
-                            className="border border-white/30 hover:border-white text-white px-6 py-3 rounded-2xl text-lg transition text-center"
-                        >
-                            Learn More
-                        </a>
+                        </text>
                     </div>
                 </div>
 

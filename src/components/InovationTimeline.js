@@ -2,24 +2,24 @@ import React from 'react';
 
 const timelineData = [
     {
-        year: 'Winter - 2023',
-        title: 'Initial Idea',
-        description: 'The concept was born: create practical tools for makers and developers.',
+        year: 'Summer - 2025',
+        title: 'Idea Started',
+        description: 'The vision for Eureka Technologies started. A way for developers and makers to work smarter and solving their real problems.',
     },
     {
-        year: 'Summer - 2024',
-        title: 'PrintNest Alpha',
-        description: 'Released the first alpha version of PrintNest for managing and monitoring 3D printing projects.',
+        year: 'Winter - 2025',
+        title: 'PrintNest Preview',
+        description: 'A preview of PrintNest with more information to come, the initial product for managing and monitoring 3D printing projects.',
     },
     {
-        year: 'Spring - 2025',
-        title: 'LogBug Beta',
-        description: 'Introduced LogBug, a centralized bug tracking system to simplify issue reporting and management.',
+        year: 'TBC',
+        title: 'LogBug',
+        description: 'LogBug, a centralized bug tracking system, planned for future release — timeframe currently under review.',
     },
     {
         year: 'To be commenced',
         title: 'Official Product Launch',
-        description: 'PrintNest and LogBug officially launched to the public, empowering makers and developers with reliable tools.',
+        description: 'PrintNest officially launched to the public, empowering makers and developers with reliable tools.',
     },
     {
         year: 'Future',

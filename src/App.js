@@ -7,7 +7,10 @@ import InnovationTimeline from './components/InovationTimeline';
 import Products from './components/Products';
 import GettingStarted from './components/GettingStarted';
 
-const App = () => {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RegisterInterest from './pages/gettingstarted';
+
+function Homepage() {
   return (
     <div className="min-h-screen min-w-screen bg-gradient-to-b from-[#0A192F] to-[#112240] text-white pt-14 overflow-x-hidden">
       <Header />
@@ -18,6 +21,17 @@ const App = () => {
       <GettingStarted />
       <Footer />
     </div>
+  )
+}
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/getting-started' element={<RegisterInterest />} />
+      </Routes>
+    </Router>
   );
 };
 

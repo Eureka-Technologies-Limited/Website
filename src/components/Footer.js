@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaDiscord, FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import { FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaEnvelope } from 'react-icons/fa';
 
@@ -8,15 +8,14 @@ function Footer() {
 
     const socialLinks = [
         { icon: <FaInstagram />, url: 'https://www.instagram.com/eurekatechnologiesltd/' },
-        { icon: <FaDiscord />, url: 'https://www.discord.gg/vekF9E2jhY/' },
         { icon: <FaLinkedinIn />, url: 'https://www.linkedin.com/company/eureka-technologies-limited/' },
-        { icon: <FaGithub />, url: 'https://www.github.com/Eureka-API' },
+        { icon: <FaGithub />, url: 'https://github.com/Eureka-Technologies-Limtied/' },
     ];
 
 
     return (
         <footer className="relative bg-lightBlue text-white w-full bottom-0">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-3/4 mx-auto px-4 py-8 space-y-8 md:space-y-0 md:space-x-8">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-3/4 mx-auto px-4 py-8 space-y-4 md:space-y-0 md:space-x-8">
                 
                 <div className="flex flex-col items-center md:items-start w-full md:w-1/4">
                     <h2 className="text-2xl font-bold mb-4">Eureka Technologies</h2>
@@ -25,7 +24,7 @@ function Footer() {
                     </p>
                     <div className="flex justify-center md:justify-start space-x-4 mb-6 text-2xl">
                         {socialLinks.map((link, index) => (
-                            <a key={index} href={link.url} target='_blank' className="text-gray-300 hover:text-white p-2 rounded-full bg-lighterBlue shadow-darkBlue shadow-sm">
+                            <a key={index} href={link.url} className="text-gray-300 hover:text-white p-2 rounded-full bg-lighterBlue shadow-darkBlue shadow-sm">
                                 {link.icon}
                             </a>
                         ))}
@@ -71,11 +70,13 @@ function Footer() {
 
             <div className="border-t border-gray-400 mt-10 pt-4 w-3/4 mx-auto flex flex-col md:flex-row justify-between text-sm text-gray-400 py-4 bottom-0">
                 <p>© {currentYear} Eureka Technologies. All rights reserved.</p>
+                {/*
                 <div className="flex gap-6 mt-4 md:mt-0">
                     <a href="#" className="hover:text-white">Privacy Policy</a>
                     <a href="#" className="hover:text-white">Terms of Service</a>
                     <a href="#" className="hover:text-white">Cookie Policy</a>
                 </div>
+                */}
             </div>
         </footer>
     );

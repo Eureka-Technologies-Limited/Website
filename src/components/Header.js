@@ -1,29 +1,48 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import Logo from '../assets/Bulb.png';
+import { Link, useLocation } from 'react-router-dom';
+import Logo from '../assets/EurekaLogoNoText.png';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    // Helper: if we’re not on homepage, go back to "/" then scroll
+    const buildLink = (hash) => {
+        return location.pathname === "/" ? hash : `/${hash}`;
+    };
 
     return (
         <header className="bg-transparent text-white w-full fixed top-0 z-50 shadow-md h-20 border-b-lighterBlue backdrop-blur-xl trasparency-DarkBlue">
             <div className="flex justify-between items-center max-w-screen-xl mx-auto px-4 py-4">
-                <div className='flex items-center space-x-4 cursor-pointer'>
-                    <img src={Logo} alt="Eureka Logo" className="h-12 w-auto md:h-16" />
-                    <h1 className="text-sm sm:text-base md:text-xl font-bold text-accent whitespace-nowrap">Eureka Technologies</h1>
-                </div>
+                {/* Logo + Brand */}
+                <Link to="/" className="flex items-center space-x-3 cursor-pointer">
+                    <img src={Logo} alt="Eureka Logo" className="h-10 w-10 md:h-10 rounded-full" />
+                    <h1 className="text-lg sm:text-base md:text-xl font-bold text-accent whitespace-nowrap">
+                        Eureka Technologies
+                    </h1>
+                </Link>
 
+                {/* Desktop Nav */}
                 <nav className="hidden md:flex">
                     <ul className="flex space-x-6 text-l">
-                        <li><a href="#features" className="hover:text-[#F57A55]">Features</a></li>
-                        <li><a href="#products" className="hover:text-[#F57A55]">Products</a></li>
-                        <li><a href="#contact" className="hover:text-[#F57A55]">Contact</a></li>
-                        <li><a href='' className=''>Dashboard</a></li>
+                        <li>
+                            <Link to={buildLink("#features")} className="hover:text-[#F57A55]">
+                                Features
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to={buildLink("#products")} className="hover:text-[#F57A55]">
+                                Products
+                            </Link>
+                        </li>
+                        {/* <li><Link to="/dashboard">Dashboard</Link></li> */}
                     </ul>
                 </nav>
 
+                {/* Mobile menu toggle */}
                 <button
                     className="md:hidden text-white text-2xl focus:outline-none"
                     onClick={toggleMenu}
@@ -33,15 +52,20 @@ function Header() {
                 </button>
             </div>
 
-            {/* Mobile menu */}
-
+            {/* Mobile Menu */}
             {isOpen && (
                 <div className="md:hidden bg-darkBlue w-full px-4 pb-4">
                     <ul className="flex flex-col space-y-4">
-                        <li><a href="#features" className="hover:text-[#F57A55]" onClick={toggleMenu}>Features</a></li>
-                        <li><a href="#products" className="hover:text-[#F57A55]" onClick={toggleMenu}>Products</a></li>
-                        <li><a href="#resources" className="hover:text-[#F57A55]" onClick={toggleMenu}>Resources</a></li>
-                        <li><a href="#contact" className="hover:text-[#F57A55]" onClick={toggleMenu}>Contact</a></li>
+                        <li>
+                            <Link to={buildLink("#features")} className="hover:text-[#F57A55]" onClick={toggleMenu}>
+                                Features
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to={buildLink("#products")} className="hover:text-[#F57A55]" onClick={toggleMenu}>
+                                Products
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             )}

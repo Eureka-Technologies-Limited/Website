@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function GettingStarted() {
+    const navigate = useNavigate();
+
     return (
         <section
             id="getting-started"
@@ -16,17 +19,15 @@ function GettingStarted() {
             </div>
 
             <div className="flex w-full justify-center md:w-auto md:justify-end">
-                <a
-                    href="#get-started"
+                <button
+                    onClick={() => navigate("/getting-started")}
                     className="px-6 py-3 font-semibold text-white rounded-full shadow-md bg-gradient-to-r from-[#F57A55] to-[#D33B41] transition duration-300 hover:opacity-90"
                 >
                     Get Started
-                </a>
+                </button>
             </div>
         </section>
-
     );
 }
 
 export default GettingStarted;
-
