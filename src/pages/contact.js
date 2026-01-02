@@ -10,17 +10,44 @@ import { Mail, Clock, MapPin } from "lucide-react";
 export default function ContactPage() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted", form);
-        setSubmitted(true);
-        setForm({ name: "", email: "", message: "" });
+        const form = e.target;
+
+        setLoading(true);
+
+        try {
+            await fetch("https://email-notifications-server.vercel.app/api/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    template: "eureka-contact-form",
+                    data: {
+                        name: form.name.value,
+                        email: form.email.value,
+                        message: form.message.value,
+                        toAddress: "info@eureka-technologies.co.uk"
+                    },
+                }),
+            });
+
+            form.reset();
+            setSubmitted(true);
+        } catch (err) {
+            console.error("Form submission failed", err);
+        } finally {
+            setLoading(false);
+        }
     };
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-darkBlue via-blue-950 to-zinc-950 text-white">
