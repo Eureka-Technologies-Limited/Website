@@ -130,9 +130,9 @@ export default function HomePage() {
                             designed to improve collaboration and observability from the ground up.
                         </p>
                         <ul className="space-y-3 text-sm text-[#A8B0C2]">
-                            <li>• Build for distributed teams</li>
-                            <li>• </li>
-                            <li>• </li>
+                            <li>• Built for distributed teams</li>
+                            <li>• All-in one application</li>
+                            <li>• Intergreated workflows</li>
                         </ul>
 
                         <Button className="mt-8" onClick={() => {navigate('https://thelogbug.com')}}>

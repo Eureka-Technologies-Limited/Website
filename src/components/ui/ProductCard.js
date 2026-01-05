@@ -21,10 +21,7 @@ export default function ProductCard({
         >
             <div className="relative h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur overflow-hidden">
                 {/* Accent bar */}
-                <div
-                    className={`h-1 w-full bg-gradient-to-r ${accents[accent] || accents.cyan
-                        }`}
-                />
+                <div className={`h-1 w-full bg-gradient-to-r ${accents[accent] || accents.cyan}`} />
 
                 <div className="p-8 flex flex-col h-full">
                     <span className="text-xs uppercase tracking-widest text-[#7C8499] mb-4">
