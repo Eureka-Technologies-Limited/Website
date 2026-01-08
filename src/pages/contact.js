@@ -10,7 +10,7 @@ import { Mail, Clock, MapPin } from "lucide-react";
 export default function ContactPage() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
     const [submitted, setSubmitted] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [setLoading] = useState(false);
 
 
     const handleChange = (e) => {
