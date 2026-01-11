@@ -6,6 +6,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Mail, Clock, MapPin } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export default function ContactPage() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -60,7 +61,7 @@ export default function ContactPage() {
                 </h1>
                 <p className="mt-8 max-w-3xl mx-auto text-[#A8B0C2] text-lg leading-relaxed">
                     Have a question, want to discuss a project, or need a bespoke solution?
-                    Reach out to our team and we’ll get back to you promptly.
+                    Reach out to our team and we'll get back to you promptly.
                 </p>
             </section>
 
@@ -133,13 +134,27 @@ export default function ContactPage() {
                             </div>
 
                             <div className="flex items-center space-x-4">
-                                <Clock className="text-[#f57a55] w-6 h-6" />
-                                <span>Monday – Friday · 8:00 – 20:00 (UK Time)</span>
+                                <Phone className="text-[#f57a55] w-6 h-6" />
+                                <a href="tel:+447760495101" className="hover:text-[#5EEAD4] hover:underline">
+                                +44 7760 495101
+                                </a>
                             </div>
+
+                            <div className="flex flex-col space-y-2">
+    <Clock className="text-[#f57a55] w-6 h-6" />
+    <div className="column">
+        <span>Monday – Friday · 8:00 – 20:00 (UK Time)</span>
+    </div>
+    <div className="column">
+        <span>Saturday · 10:00 – 22:00 (UK Time)</span>
+    </div>
+    <span>Sunday · Closed</span>
+</div>
 
                             <div className="pt-4 border-t border-white/10">
                                 <p className="text-sm text-[#A8B0C2]">
                                     Email is our primary contact method. We typically respond within 1–2 business days.
+                                    If you call us please leave a voicemail and we will get back to you as soon as possible.
                                 </p>
                             </div>
                         </CardContent>

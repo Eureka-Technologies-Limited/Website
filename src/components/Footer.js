@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import printnest from '../pages/printnest';
 
 export default function Footer() {
     return (
@@ -18,8 +20,8 @@ export default function Footer() {
                 <div>
                     <h4 className="text-white font-semibold mb-4">Products</h4>
                     <ul className="space-y-2 text-[#A8B0C2]">
-                        <li>PrintNest</li>
-                        <li>LogBug</li>
+                        <li><Link to="/printnest">PrintNest</Link></li>
+                        <li><Link to="/logbug">LogBug</Link></li>
                         <li>Custom Applications</li>
                     </ul>
                 </div>

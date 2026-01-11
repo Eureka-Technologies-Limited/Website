@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Terminal, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function NotFound() {
                         error: route_not_found
                     </p>
                     <p className="mt-2">
-                        hint: verify the path or return to a known endpoint
+                        hint: verify the path or return to a known endpoint. If this is not expected please Contact Us: <Link className="text-red-400" to={"/contact"}>Here</Link>.
                     </p>
                 </div>
 
