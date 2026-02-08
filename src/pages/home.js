@@ -9,6 +9,7 @@ import { ArrowRight, Cpu, Cloud, Shield, Laptop } from "lucide-react";
 import Footer from '../components/footer';
 
 import PrintNestLogo from '../assets/PrintNest.png'
+import LogBugLogo from '../assets/LogBug.png'
 
 export default function HomePage() {
     const navigate = useNavigate()
@@ -79,12 +80,13 @@ export default function HomePage() {
                         title="LogBug"
                         description="Streamline bug tracking and team workflows with observability built in from the start."
                         tag="Observability · Administration"
-                        location="https://thelogbug.com"
+                        location="/logbug"
                     />
                     <Product
                         title="Custom Applications"
                         description="Bespoke software, internal tools, and automation systems built for real operational needs."
                         tag="Consultancy · Engineering"
+                        location="/contact"
                     />
                 </div>
             </section>
@@ -119,7 +121,7 @@ export default function HomePage() {
             <section className="max-w-7xl mx-auto px-6 py-12">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                     <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-[#b0b3b9]">
-                        <img src="/logbug-screenshot.png" alt="LogBug Logo" className="rounded-2xl" />
+                        <img src={LogBugLogo} alt="LogBug Logo" className="rounded-2xl" />
                     </div>
                     <div>
                         <h3 className="text-3xl font-semibold mb-6">
@@ -135,7 +137,7 @@ export default function HomePage() {
                             <li>• Intergreated workflows</li>
                         </ul>
 
-                        <Button className="mt-8" onClick={() => {navigate('https://thelogbug.com')}}>
+                        <Button className="mt-8" onClick={() => {navigate('/logbug')}}>
                             Explore LogBug <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                     </div>

@@ -4,9 +4,12 @@ import Footer from "../components/footer";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ArrowRight, Layers, Server, Cpu } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 export default function PlatformsPage() {
+    const navigate = useNavigate()
     return (
+        
         <div className="min-h-screen bg-gradient-to-br from-darkBlue via-blue-950 to-zinc-950 text-white">
             <Navbar />
 
@@ -61,7 +64,7 @@ export default function PlatformsPage() {
                                 <li>• Designed to scale into fleet management</li>
                             </ul>
 
-                            <Button>
+                            <Button  onClick={() => navigate('/printnest')}>
                                 Explore PrintNest <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>
                         </CardContent>
@@ -84,8 +87,8 @@ export default function PlatformsPage() {
                                 <li>• Designed for internal and client-facing workflows</li>
                             </ul>
 
-                            <Button variant="outline">
-                                Visit LogBug <ArrowRight className="ml-2 w-4 h-4" />
+                            <Button  onClick={() => navigate('/logbug')}>
+                                Explore LogBug <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>
                         </CardContent>
                     </Card>
@@ -115,7 +118,7 @@ export default function PlatformsPage() {
                     bespoke systems using the same foundations and engineering discipline.
                 </p>
 
-                <Button>
+                <Button onClick={() => navigate('/contact')}>
                     Talk to Us <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
             </section>

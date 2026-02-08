@@ -22,7 +22,7 @@ export default function Footer() {
                     <ul className="space-y-2 text-[#A8B0C2]">
                         <li><Link to="/printnest">PrintNest</Link></li>
                         <li><Link to="/logbug">LogBug</Link></li>
-                        <li>Custom Applications</li>
+                        <li><Link to="/contact">Custom Applications</Link></li>
                     </ul>
                 </div>
 

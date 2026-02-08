@@ -135,21 +135,21 @@ export default function ContactPage() {
 
                             <div className="flex items-center space-x-4">
                                 <Phone className="text-[#f57a55] w-6 h-6" />
-                                <a href="tel:+447760495101" className="hover:text-[#5EEAD4] hover:underline">
-                                +44 7760 495101
+                                <a href="tel:+447562272917" className="hover:text-[#5EEAD4] hover:underline">
+                                +44 7562 272917
                                 </a>
                             </div>
 
                             <div className="flex flex-col space-y-2">
-    <Clock className="text-[#f57a55] w-6 h-6" />
-    <div className="column">
-        <span>Monday – Friday · 8:00 – 20:00 (UK Time)</span>
-    </div>
-    <div className="column">
-        <span>Saturday · 10:00 – 22:00 (UK Time)</span>
-    </div>
-    <span>Sunday · Closed</span>
-</div>
+                                <Clock className="text-[#f57a55] w-6 h-6" />
+                                <div className="column">
+                                    <span>Monday – Friday · 8:00 – 20:00 (UK Time)</span>
+                                </div>
+                                <div className="column">
+                                    <span>Saturday · 10:00 – 22:00 (UK Time)</span>
+                                </div>
+                                <span>Sunday · Closed</span>
+                            </div>
 
                             <div className="pt-4 border-t border-white/10">
                                 <p className="text-sm text-[#A8B0C2]">
@@ -170,10 +170,9 @@ export default function ContactPage() {
                 <p className="text-[#A8B0C2] mb-8 max-w-2xl mx-auto">
                     We also create bespoke solutions built with the same engineering principles
                     as our core platforms. Let’s explore how we can help your project succeed.
+                    <br></br>
+                    Contact us using the above methods today.
                 </p>
-                <Button className="bg-[#f57a55] hover:bg-[#d33b41]">
-                    Talk to Us
-                </Button>
             </section>
 
             <Footer />
