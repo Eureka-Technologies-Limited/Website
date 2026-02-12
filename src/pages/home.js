@@ -6,7 +6,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import Product from '../components/ui/ProductCard';
 import { ArrowRight, Cpu, Cloud, Shield, Laptop } from "lucide-react";
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 import PrintNestLogo from '../assets/PrintNest.png'
 import LogBugLogo from '../assets/LogBug.png'

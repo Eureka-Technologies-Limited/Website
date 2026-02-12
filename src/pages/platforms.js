@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ArrowRight, Layers, Server, Cpu } from "lucide-react";

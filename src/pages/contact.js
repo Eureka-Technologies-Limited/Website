@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
