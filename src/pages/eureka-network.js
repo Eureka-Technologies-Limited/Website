@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
 import { motion } from "framer-motion";
 import { Card, CardContent } from '../components/ui/card';
-import { EarlyAccessModal } from '../components/EarlyAccessModal';
 import { 
   ArrowRight, 
   Check, 
   Zap, 
   Layers, 
-  Users,
+ 
+  Settings,
   BarChart3,
 
-  Network,
-  Brain,
+
+
+
   Workflow,
-  Settings
+  Brain,
+  Network
 } from "lucide-react";
 
 const containerVariants = {
@@ -39,9 +41,9 @@ const itemVariants = {
   },
 };
 
-export default function HomePage() {
-  const [earlyAccessProduct, setEarlyAccessProduct] = useState(null);
+export default function EurekaNetworkPage() {
   const navigate = useNavigate();
+  
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
@@ -75,7 +77,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
-              A unified platform of intelligent enterprise applications working seamlessly together. From service management to advanced automation and expert consulting, we're building the ecosystem that modern organizations deserve.
+              A unified platform of intelligent enterprise applications working seamlessly together. From service management to advanced automation, we're building the tools that modern organizations deserve.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
@@ -85,34 +87,23 @@ export default function HomePage() {
                 onClick={() => navigate('/contact')}
                 className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-500/30 transition-all"
               >
-                Get Started
+                Join Early Access
                 <ArrowRight className="inline ml-2 w-4 h-4" />
               </motion.button>
 
-              <motion.a
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://eureka-now-nine.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => navigate('/')}
                 className="px-8 py-4 border border-slate-500/30 text-white font-semibold rounded-xl hover:bg-white/5 transition-all"
               >
-                View Demo
-              </motion.a>
+                Back to Home
+              </motion.button>
             </div>
 
             <p className="text-sm text-slate-400">
-              Trusted by enterprise teams • 99.9% Uptime SLA • Expert Support
+              Currently in development. We're building something extraordinary.
             </p>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="mt-8 text-sm uppercase tracking-[0.3em] text-purple-400 font-semibold"
-            >
-              Innovate · Build · Share
-            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -129,7 +120,7 @@ export default function HomePage() {
           >
             <h2 className="text-4xl font-bold text-white mb-4">Our Vision</h2>
             <p className="text-slate-300 text-lg max-w-3xl mx-auto">
-              The Eureka ecosystem is designed to eliminate complexity and empower organizations. 
+              The Eureka Network is a revolutionary ecosystem designed to eliminate complexity and empower organizations. 
               Each application is built to integrate seamlessly, creating a unified experience that adapts to your needs.
             </p>
           </motion.div>
@@ -149,7 +140,7 @@ export default function HomePage() {
             ].map((item, i) => (
               <motion.div key={i} variants={itemVariants}>
                 <Card className="bg-gradient-to-br from-slate-800/50 to-slate-800/20 border-slate-700/50 h-full hover:border-purple-400/50 transition-all">
-                  <CardContent c ssName="p-6">
+                  <CardContent className="p-6">
                     <item.icon className="w-10 h-10 text-purple-400 mb-4" />
                     <h4 className="font-semibold text-white mb-2">{item.title}</h4>
                     <p className="text-sm text-slate-400">{item.desc}</p>
@@ -171,8 +162,8 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Our Solutions</h2>
-            <p className="text-slate-300 text-lg">Powerful tools working together</p>
+            <h2 className="text-4xl font-bold text-white mb-4">Core Applications</h2>
+            <p className="text-slate-300 text-lg">Building the foundation of modern enterprise software</p>
           </motion.div>
 
           <motion.div
@@ -185,7 +176,7 @@ export default function HomePage() {
             {[
               {
                 name: "EurekaNow",
-                status: "Coming Soon",
+                status: "Available Now",
                 icon: Layers,
                 description: "Enterprise service desk platform for IT, clinical ops, engineering, and HR.",
                 features: [
@@ -196,39 +187,8 @@ export default function HomePage() {
                   "Knowledge base & automation"
                 ],
                 color: "cyan",
-                cta: () => navigate('/eureka-now')
+                cta: () => navigate('/eureka-now-new')
               },
-              {
-                name: "EurekaConsult",
-                status: "Available Now",
-                icon: Users,
-                description: "Expert digital transformation services. Custom development, infrastructure, DevOps, and strategic guidance.",
-                features: [
-                  "IT infrastructure strategy",
-                  "Custom application development",
-                  "Cloud migration & DevOps",
-                  "Security & compliance advisory",
-                  "Team augmentation & training"
-                ],
-                color: "cyan",
-                cta: () => navigate('/eureka-consult')
-              },
-              {
-                name: "EurekaInsights",
-                status: "Coming Soon",
-                icon: BarChart3,
-                description: "AI-powered analytics platform delivering actionable insights across your entire ecosystem.",
-                features: [
-                  "Unified data model",
-                  "Pre-built AI insights",
-                  "Custom dashboard builder",
-                  "Cross-app analytics",
-                  "Automated reporting"
-                ],
-                color: "purple",
-                cta: () => setEarlyAccessProduct("eureka_insights")
-              }
-              /** 
               {
                 name: "Workflow Engine",
                 status: "Coming Soon",
@@ -242,7 +202,7 @@ export default function HomePage() {
                   "Advanced reporting"
                 ],
                 color: "purple",
-                cta: () => setEarlyAccessProduct("workflow_engine")
+                cta: () => navigate('/contact')
               },
               {
                 name: "Integration Hub",
@@ -257,9 +217,23 @@ export default function HomePage() {
                   "Developer dashboard"
                 ],
                 color: "purple",
-                cta: () => setEarlyAccessProduct("workflow_engine")
+                cta: () => navigate('/contact')
+              },
+              {
+                name: "AI Analytics",
+                status: "Coming Soon",
+                icon: Brain,
+                description: "Intelligent insights and predictive analytics engine.",
+                features: [
+                  "Real-time dashboards",
+                  "Predictive analytics",
+                  "Anomaly detection",
+                  "Custom report builder",
+                  "Machine learning models"
+                ],
+                color: "purple",
+                cta: () => navigate('/contact')
               }
-              */
             ].map((app, i) => (
               <motion.div key={i} variants={itemVariants}>
                 <Card className={`h-full transition-all cursor-pointer ${
@@ -267,6 +241,7 @@ export default function HomePage() {
                     ? 'bg-gradient-to-br from-cyan-500/5 to-blue-500/5 border-cyan-500/30 hover:border-cyan-400/50'
                     : 'bg-gradient-to-br from-purple-500/5 to-pink-500/5 border-purple-500/30 hover:border-purple-400/50'
                 }`}
+                
                 >
                   <CardContent className="p-8">
                     <div className="flex items-start justify-between mb-4">
@@ -300,7 +275,7 @@ export default function HomePage() {
                           : 'bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30'
                       }`}
                     >
-                      {app.status === 'Available Now' ? 'Learn More' : 'Get Early Access'} →
+                      {app.status === 'Available Now' ? 'Explore Now' : 'Get Early Access'} →
                     </button>
                   </CardContent>
                 </Card>
@@ -322,7 +297,7 @@ export default function HomePage() {
           >
             <h2 className="text-4xl font-bold text-white mb-4">Built for Integration</h2>
             <p className="text-slate-300 text-lg max-w-3xl mx-auto">
-              Every application in the Eureka ecosystem is designed from day one to work together seamlessly.
+              Every application in the Eureka Network is designed from day one to work together seamlessly.
               Data flows effortlessly, workflows span across apps, and insights are unified.
             </p>
           </motion.div>
@@ -362,7 +337,7 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-white mb-4">What's Coming</h2>
-            <p className="text-slate-300 text-lg">Our vision for the Eureka ecosystem</p>
+            <p className="text-slate-300 text-lg">Our vision for the Eureka Network</p>
           </motion.div>
 
           <motion.div
@@ -373,9 +348,9 @@ export default function HomePage() {
             className="space-y-4"
           >
             {[
-              { phase: "2026", items: ["EurekaNow", "EurekaConsult"] },
-              { phase: "Early 2027", items: ["EurekaInsights", "EurekaNetwork Portal"] },
-              { phase: "Late 2027", items: ["Extended app ecosystem", "Advanced AI features", "Global expansion"] }
+              { phase: "Q3 2026", items: ["Workflow Engine Beta", "API Gateway v1", "Advanced integrations"] },
+              { phase: "Q4 2026", items: ["AI Analytics Launch", "Mobile Apps", "Enterprise SSO"] },
+              { phase: "2027", items: ["Extended app ecosystem", "Advanced AI features", "Global expansion"] }
             ].map((phase, i) => (
               <motion.div key={i} variants={itemVariants}>
                 <Card className="bg-slate-800/50 border-slate-700/50 hover:border-purple-400/50 transition-all">
@@ -410,9 +385,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Experience the Future?</h2>
             <p className="text-slate-300 text-lg mb-8">
-              Start with EurekaNow, leverage EurekaConsult expertise, or join our early access program for future products.
+              Join our early access program and be among the first to shape the Eureka Network.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <motion.button
@@ -421,7 +396,7 @@ export default function HomePage() {
                 onClick={() => navigate('/contact')}
                 className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-purple-500/30 transition-all"
               >
-                Get Started Today
+                Join Early Access
                 <ArrowRight className="inline ml-2 w-4 h-4" />
               </motion.button>
               <motion.button
@@ -430,18 +405,12 @@ export default function HomePage() {
                 onClick={() => navigate('/eureka-now-new')}
                 className="px-8 py-4 border border-slate-500/30 text-white font-semibold rounded-xl hover:bg-white/5 transition-all"
               >
-                Explore EurekaNow
+                Start with EurekaNow
               </motion.button>
             </div>
           </motion.div>
         </div>
       </section>
-
-      <EarlyAccessModal
-        product={earlyAccessProduct}
-        isOpen={!!earlyAccessProduct}
-        onClose={() => setEarlyAccessProduct(null)}
-      />
 
       <Footer />
     </div>

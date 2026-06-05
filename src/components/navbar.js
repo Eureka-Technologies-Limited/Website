@@ -27,16 +27,16 @@ export default function Navbar() {
                 {/* Navigation */}
                 <nav className="hidden md:flex gap-8 text-sm text-zinc-300">
                     <a
-                        href="/#products"
+                        href="/"
                         className="border-b-2 border-transparent hover:border-blue-600 hover:text-white transition-colors duration-200"
                     >
                         Products
                     </a>
                     <button
-                        onClick={() => navigate('/platforms')}
+                        onClick={() => navigate('/eureka-consult')}
                         className="border-b-2 border-transparent hover:border-blue-600 hover:text-white transition-colors duration-200"
                     >
-                        Platforms
+                        EurekaConsult
                     </button>
                     <button
                         onClick={() => navigate('/contact')}

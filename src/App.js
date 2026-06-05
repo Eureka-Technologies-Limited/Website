@@ -3,8 +3,9 @@ import React from "react";
 
 import HomePage from "./pages/home";
 import PlatformsPage from "./pages/platforms";
-import PrintNestPage from "./pages/printnest";
-import LogBugPage from "./pages/logbug";
+import EurekaNowLanding from "./pages/EurekaNow";
+import EurekaConsultPage from "./pages/eureka-consult";
+import ITConsultancyPage from "./pages/it-consultancy";
 import NotFound from "./pages/NotFound";
 import ContactPage from "./pages/contact";
 
@@ -14,8 +15,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/platforms" element={<PlatformsPage />} />
-        <Route path="/printnest" element={<PrintNestPage />} />
-        <Route path="/logbug" element={<LogBugPage />} />
+        <Route path="/eureka-now" element={<EurekaNowLanding />} />
+        <Route path="/eureka-consult" element={<EurekaConsultPage />} />
+        <Route path="/it-consultancy" element={<ITConsultancyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
