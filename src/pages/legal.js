@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Footer from "../components/Footer";
 
 const COLORS = {
     darkBlue: "#0b1a30",
@@ -18,11 +17,10 @@ const COLORS = {
 const NAV_TABS = ["Privacy Policy", "Terms of Service"];
 
 // ── Section components ──────────────────────────────────────────
-function SectionHeading({ children }) {
+function SectionHeading({ children, id }) {
     return (
         <h2
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            className="text-2xl font-bold mb-4 mt-10 first:mt-0"
+            id={id}
             style={{
                 color: COLORS.primaryText,
                 fontFamily: "'Playfair Display', Georgia, serif",
@@ -30,6 +28,10 @@ function SectionHeading({ children }) {
                 paddingLeft: "16px",
                 marginTop: "2.5rem",
                 marginBottom: "1rem",
+                fontSize: "clamp(18px, 4vw, 24px)",
+                fontWeight: 700,
+                // offset for sticky nav so the heading isn't hidden behind it
+                scrollMarginTop: "80px",
             }}
         >
             {children}
@@ -107,7 +109,7 @@ function PrivacyPolicy() {
                 and use of information as described here.
             </InfoBox>
 
-            <SectionHeading>1. Who We Are</SectionHeading>
+            <SectionHeading id="section-1">1. Who We Are</SectionHeading>
             <Paragraph>
                 Eureka Technologies Limited ("Eureka", "we", "us", or "our") is the company behind
                 EurekaNetwork and EurekaNow. We are committed to protecting your personal data and
@@ -125,7 +127,7 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>2. Information We Collect</SectionHeading>
+            <SectionHeading id="section-2">2. Information We Collect</SectionHeading>
             <SubHeading>2.1 Information You Provide</SubHeading>
             <BulletList
                 items={[
@@ -155,7 +157,7 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>3. How We Use Your Information</SectionHeading>
+            <SectionHeading id="section-3">3. How We Use Your Information</SectionHeading>
             <Paragraph>We use the information we collect to:</Paragraph>
             <BulletList
                 items={[
@@ -171,10 +173,8 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>4. Legal Basis for Processing</SectionHeading>
-            <Paragraph>
-                We process your personal data under the following legal bases:
-            </Paragraph>
+            <SectionHeading id="section-4">4. Legal Basis for Processing</SectionHeading>
+            <Paragraph>We process your personal data under the following legal bases:</Paragraph>
             <BulletList
                 items={[
                     "Contract — to fulfil our obligations to you as a user of our services.",
@@ -186,10 +186,8 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>5. Sharing Your Information</SectionHeading>
-            <Paragraph>
-                We do not sell your personal data. We may share it with:
-            </Paragraph>
+            <SectionHeading id="section-5">5. Sharing Your Information</SectionHeading>
+            <Paragraph>We do not sell your personal data. We may share it with:</Paragraph>
             <BulletList
                 items={[
                     "Service providers who help us operate our platforms (e.g. cloud hosting, email delivery, analytics).",
@@ -205,7 +203,7 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>6. Data Retention</SectionHeading>
+            <SectionHeading id="section-6">6. Data Retention</SectionHeading>
             <Paragraph>
                 We retain your personal data for as long as your account is active or as needed to provide
                 services to you. We will delete or anonymise your data upon request, unless we are required
@@ -214,10 +212,8 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>7. Your Rights</SectionHeading>
-            <Paragraph>
-                Under UK GDPR, you have the right to:
-            </Paragraph>
+            <SectionHeading id="section-7">7. Your Rights</SectionHeading>
+            <Paragraph>Under UK GDPR, you have the right to:</Paragraph>
             <BulletList
                 items={[
                     "Access the personal data we hold about you.",
@@ -239,7 +235,7 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>8. Cookies</SectionHeading>
+            <SectionHeading id="section-8">8. Cookies</SectionHeading>
             <Paragraph>
                 We use essential cookies to operate our services, and optional analytics and preference
                 cookies to improve your experience. You can manage cookie preferences via the banner shown
@@ -248,7 +244,7 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>9. International Transfers</SectionHeading>
+            <SectionHeading id="section-9">9. International Transfers</SectionHeading>
             <Paragraph>
                 Your data is primarily stored and processed in the United Kingdom. Where we transfer data
                 outside the UK, we ensure appropriate safeguards are in place, such as Standard Contractual
@@ -257,7 +253,7 @@ function PrivacyPolicy() {
 
             <Divider />
 
-            <SectionHeading>10. Changes to This Policy</SectionHeading>
+            <SectionHeading id="section-10">10. Changes to This Policy</SectionHeading>
             <Paragraph>
                 We may update this Privacy Policy from time to time. We will notify you of significant
                 changes by email or via a prominent notice on our website. Continued use of our services
@@ -279,7 +275,7 @@ function TermsOfService() {
                 services.
             </InfoBox>
 
-            <SectionHeading>1. Acceptance of Terms</SectionHeading>
+            <SectionHeading id="section-1">1. Acceptance of Terms</SectionHeading>
             <Paragraph>
                 By accessing or using any product or service provided by Eureka Technologies Limited
                 ("Eureka", "we", "us", or "our") — including EurekaNetwork and EurekaNow — you agree to be
@@ -289,7 +285,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>2. About Our Services</SectionHeading>
+            <SectionHeading id="section-2">2. About Our Services</SectionHeading>
             <Paragraph>
                 Eureka Technologies Limited operates EurekaNetwork, a connected platform ecosystem, and
                 EurekaNow, a real-time productivity and innovation tool. Our services are subject to change,
@@ -298,7 +294,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>3. Eligibility</SectionHeading>
+            <SectionHeading id="section-3">3. Eligibility</SectionHeading>
             <BulletList
                 items={[
                     "You must be at least 16 years old to use our services.",
@@ -310,10 +306,8 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>4. Account Registration</SectionHeading>
-            <Paragraph>
-                To access certain features, you must create an account. You agree to:
-            </Paragraph>
+            <SectionHeading id="section-4">4. Account Registration</SectionHeading>
+            <Paragraph>To access certain features, you must create an account. You agree to:</Paragraph>
             <BulletList
                 items={[
                     "Provide accurate, current, and complete information during registration.",
@@ -329,7 +323,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>5. Acceptable Use</SectionHeading>
+            <SectionHeading id="section-5">5. Acceptable Use</SectionHeading>
             <Paragraph>You agree not to use our services to:</Paragraph>
             <BulletList
                 items={[
@@ -346,7 +340,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>6. Intellectual Property</SectionHeading>
+            <SectionHeading id="section-6">6. Intellectual Property</SectionHeading>
             <Paragraph>
                 All content, software, trademarks, and materials associated with EurekaNetwork, EurekaNow,
                 and Eureka Technologies Limited are owned by or licensed to us. You are granted a limited,
@@ -361,7 +355,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>7. Payments & Subscriptions</SectionHeading>
+            <SectionHeading id="section-7">7. Payments & Subscriptions</SectionHeading>
             <SubHeading>7.1 Fees</SubHeading>
             <Paragraph>
                 Certain features of EurekaNow and EurekaNetwork may require payment. All fees are stated in
@@ -383,7 +377,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>8. Termination</SectionHeading>
+            <SectionHeading id="section-8">8. Termination</SectionHeading>
             <Paragraph>
                 You may cancel your account at any time via your account settings. We may suspend or
                 terminate your access immediately if you breach these Terms, engage in fraudulent activity,
@@ -393,7 +387,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>9. Disclaimers & Limitation of Liability</SectionHeading>
+            <SectionHeading id="section-9">9. Disclaimers & Limitation of Liability</SectionHeading>
             <Paragraph>
                 Our services are provided "as is" without warranties of any kind. To the fullest extent
                 permitted by law, Eureka Technologies Limited is not liable for:
@@ -413,7 +407,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>10. Governing Law</SectionHeading>
+            <SectionHeading id="section-10">10. Governing Law</SectionHeading>
             <Paragraph>
                 These Terms are governed by and construed in accordance with the laws of England and Wales.
                 Any disputes shall be subject to the exclusive jurisdiction of the courts of England and
@@ -422,7 +416,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>11. Changes to These Terms</SectionHeading>
+            <SectionHeading id="section-11">11. Changes to These Terms</SectionHeading>
             <Paragraph>
                 We may update these Terms from time to time. We will provide at least 14 days' notice of
                 material changes via email or in-app notification. Continued use of our services after the
@@ -431,7 +425,7 @@ function TermsOfService() {
 
             <Divider />
 
-            <SectionHeading>12. Contact Us</SectionHeading>
+            <SectionHeading id="section-12">12. Contact Us</SectionHeading>
             <Paragraph>
                 For questions about these Terms, please contact us at{" "}
                 <a href="mailto:legal@eureka-technologies.co.uk" style={{ color: COLORS.accent }}>
@@ -460,11 +454,6 @@ function TermsOfService() {
             </div>
         </div>
     );
-}
-
-// -- Cookie Policy content component could be added here if needed --
-function CookiePolicy() {
-// Placeholder for Cookie Policy content
 }
 
 // ── TABLE OF CONTENTS ───────────────────────────────────────────
@@ -497,11 +486,148 @@ const TOC = {
     ],
 };
 
+// ── MOBILE TOC DRAWER ───────────────────────────────────────────
+function MobileTOC({ activeTab, onClose, handleTabSwitch }) {
+    return (
+        <div
+            style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 200,
+                display: "flex",
+                flexDirection: "column",
+            }}
+        >
+            {/* Backdrop */}
+            <div
+                onClick={onClose}
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "rgba(0,0,0,0.6)",
+                    backdropFilter: "blur(4px)",
+                }}
+            />
+            {/* Drawer slides up from bottom */}
+            <div
+                style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: COLORS.darkBlue,
+                    border: `1px solid ${COLORS.border}`,
+                    borderBottom: "none",
+                    borderRadius: "20px 20px 0 0",
+                    padding: "24px 24px 40px",
+                    maxHeight: "75vh",
+                    overflowY: "auto",
+                    animation: "slideUp 0.25s ease",
+                }}
+            >
+                <style>{`
+                    @keyframes slideUp {
+                        from { transform: translateY(100%); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                `}</style>
+                {/* Handle */}
+                <div
+                    style={{
+                        width: 36,
+                        height: 4,
+                        borderRadius: 2,
+                        background: COLORS.border,
+                        margin: "0 auto 20px",
+                    }}
+                />
+                <p
+                    style={{
+                        color: COLORS.mutedBlue,
+                        fontSize: "11px",
+                        fontWeight: 600,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        marginBottom: "16px",
+                    }}
+                >
+                    On this page
+                </p>
+                <nav style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                    {TOC[activeTab].map((item, i) => (
+                        <a
+                            key={item}
+                            href={`#section-${i + 1}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onClose();
+                                // Small delay so drawer closes before scroll fires
+                                setTimeout(() => {
+                                    const el = document.getElementById(`section-${i + 1}`);
+                                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }, 120);
+                            }}
+                            style={{
+                                color: COLORS.secondaryText,
+                                textDecoration: "none",
+                                fontSize: "14px",
+                                padding: "10px 12px",
+                                borderRadius: "8px",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "10px",
+                                borderLeft: `2px solid ${COLORS.border}`,
+                            }}
+                        >
+                            <span style={{ color: COLORS.accent, fontSize: "12px", fontWeight: 700, minWidth: "20px" }}>
+                                {i + 1}.
+                            </span>
+                            {item}
+                        </a>
+                    ))}
+                </nav>
+                {/* Switch doc */}
+                <div
+                    style={{
+                        marginTop: "20px",
+                        padding: "14px 16px",
+                        borderRadius: "10px",
+                        background: COLORS.lightBlue,
+                        border: `1px solid ${COLORS.border}`,
+                        fontSize: "13px",
+                        color: COLORS.mutedBlue,
+                    }}
+                >
+                    Also read our{" "}
+                    <button
+                        onClick={() => {
+                            handleTabSwitch(activeTab === "Privacy Policy" ? "Terms of Service" : "Privacy Policy");
+                            onClose();
+                        }}
+                        style={{
+                            background: "none",
+                            border: "none",
+                            color: COLORS.accent,
+                            cursor: "pointer",
+                            padding: 0,
+                            fontSize: "13px",
+                            fontFamily: "inherit",
+                        }}
+                    >
+                        {activeTab === "Privacy Policy" ? "Terms of Service →" : "Privacy Policy →"}
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 // ── MAIN PAGE ───────────────────────────────────────────────────
 export default function EurekaLegalPage() {
     const [activeTab, setActiveTab] = useState("Privacy Policy");
     const [scrolled, setScrolled] = useState(false);
     const [visible, setVisible] = useState(false);
+    const [tocOpen, setTocOpen] = useState(false);
     const contentRef = useRef(null);
 
     useEffect(() => {
@@ -513,6 +639,12 @@ export default function EurekaLegalPage() {
         window.addEventListener("scroll", handler);
         return () => window.removeEventListener("scroll", handler);
     }, []);
+
+    // Lock body scroll when TOC drawer is open
+    useEffect(() => {
+        document.body.style.overflow = tocOpen ? "hidden" : "";
+        return () => { document.body.style.overflow = ""; };
+    }, [tocOpen]);
 
     const handleTabSwitch = (tab) => {
         setActiveTab(tab);
@@ -529,45 +661,72 @@ export default function EurekaLegalPage() {
         >
             {/* Google Fonts */}
             <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: ${COLORS.darkBlue}; }
-        ::-webkit-scrollbar-thumb { background: ${COLORS.border}; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: ${COLORS.skyBlue}; }
-        a { transition: color 0.2s; }
-        a:hover { color: #ffaa88 !important; }
-      `}</style>
+                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+                * { box-sizing: border-box; }
+                html { scroll-behavior: smooth; }
+                ::-webkit-scrollbar { width: 6px; }
+                ::-webkit-scrollbar-track { background: ${COLORS.darkBlue}; }
+                ::-webkit-scrollbar-thumb { background: ${COLORS.border}; border-radius: 3px; }
+                ::-webkit-scrollbar-thumb:hover { background: ${COLORS.skyBlue}; }
+                a { transition: color 0.2s; }
+                a:hover { color: #ffaa88 !important; }
+
+                /* Responsive utilities */
+                .sidebar-desktop { display: none; }
+                @media (min-width: 1024px) {
+                    .sidebar-desktop { display: block; }
+                    .toc-fab { display: none !important; }
+                    .nav-tabs-mobile { display: none; }
+                    .nav-tabs-desktop { display: flex !important; }
+                }
+                @media (max-width: 1023px) {
+                    .nav-tabs-desktop { display: none !important; }
+                }
+                @media (max-width: 480px) {
+                    .hero-badges { flex-direction: column; align-items: flex-start; gap: 8px; }
+                }
+            `}</style>
 
             {/* ── STICKY NAVBAR ── */}
             <nav
                 style={{
                     position: "sticky",
                     top: 0,
-                    zIndex: 50,
-                    background: scrolled
-                        ? `rgba(11,26,48,0.97)`
-                        : "transparent",
+                    zIndex: 100,
+                    background: scrolled ? `rgba(11,26,48,0.97)` : "transparent",
                     borderBottom: scrolled ? `1px solid ${COLORS.border}` : "1px solid transparent",
                     transition: "background 0.3s, border-color 0.3s",
                     backdropFilter: scrolled ? "blur(12px)" : "none",
                 }}
             >
                 <div
-                    style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 32px" }}
-                    className="flex items-center justify-between h-16"
+                    style={{
+                        maxWidth: "1100px",
+                        margin: "0 auto",
+                        padding: "0 16px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        height: "60px",
+                        gap: "12px",
+                    }}
                 >
                     {/* Logo */}
-                    <div className="flex items-center gap-3">
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
                         <div
-                            className="flex items-center justify-center rounded-lg font-bold text-lg"
                             style={{
-                                width: 36,
-                                height: 36,
+                                width: 34,
+                                height: 34,
                                 background: COLORS.accent,
                                 color: COLORS.darkBlue,
+                                borderRadius: "8px",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                                 fontFamily: "'Playfair Display', Georgia, serif",
+                                fontWeight: 700,
+                                fontSize: "17px",
+                                flexShrink: 0,
                             }}
                         >
                             E
@@ -576,7 +735,7 @@ export default function EurekaLegalPage() {
                             <span
                                 style={{
                                     fontFamily: "'Playfair Display', Georgia, serif",
-                                    fontSize: "17px",
+                                    fontSize: "16px",
                                     fontWeight: 700,
                                     color: COLORS.primaryText,
                                 }}
@@ -585,10 +744,11 @@ export default function EurekaLegalPage() {
                             </span>
                             <div
                                 style={{
-                                    fontSize: "10px",
+                                    fontSize: "9px",
                                     color: COLORS.mutedBlue,
                                     letterSpacing: "0.08em",
                                     marginTop: "-2px",
+                                    whiteSpace: "nowrap",
                                 }}
                             >
                                 by Eureka Technologies Limited
@@ -596,26 +756,74 @@ export default function EurekaLegalPage() {
                         </div>
                     </div>
 
-                    {/* Tab switcher */}
+                    {/* Desktop tab switcher */}
                     <div
-                        className="flex items-center gap-1 rounded-lg p-1"
-                        style={{ background: COLORS.lightBlue, border: `1px solid ${COLORS.border}` }}
+                        className="nav-tabs-desktop"
+                        style={{
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "10px",
+                            padding: "4px",
+                            background: COLORS.lightBlue,
+                            border: `1px solid ${COLORS.border}`,
+                        }}
                     >
                         {NAV_TABS.map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => handleTabSwitch(tab)}
-                                className="text-sm font-medium rounded-md px-4 py-1.5 transition-all duration-200"
                                 style={{
                                     background: activeTab === tab ? COLORS.accent : "transparent",
                                     color: activeTab === tab ? "#fff" : COLORS.mutedBlue,
                                     border: "none",
                                     cursor: "pointer",
                                     fontFamily: "'DM Sans', Arial, sans-serif",
+                                    fontSize: "13px",
+                                    fontWeight: 500,
+                                    borderRadius: "7px",
+                                    padding: "6px 16px",
                                     whiteSpace: "nowrap",
+                                    transition: "all 0.2s",
                                 }}
                             >
                                 {tab}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Mobile tab switcher — compact pill */}
+                    <div
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "3px",
+                            borderRadius: "8px",
+                            padding: "3px",
+                            background: COLORS.lightBlue,
+                            border: `1px solid ${COLORS.border}`,
+                        }}
+                        className="nav-tabs-mobile"
+                    >
+                        {NAV_TABS.map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => handleTabSwitch(tab)}
+                                style={{
+                                    background: activeTab === tab ? COLORS.accent : "transparent",
+                                    color: activeTab === tab ? "#fff" : COLORS.mutedBlue,
+                                    border: "none",
+                                    cursor: "pointer",
+                                    fontFamily: "'DM Sans', Arial, sans-serif",
+                                    fontSize: "11px",
+                                    fontWeight: 500,
+                                    borderRadius: "5px",
+                                    padding: "5px 10px",
+                                    whiteSpace: "nowrap",
+                                    transition: "all 0.2s",
+                                }}
+                                title={tab}
+                            >
+                                {tab === "Privacy Policy" ? "Privacy" : "Terms"}
                             </button>
                         ))}
                     </div>
@@ -630,12 +838,23 @@ export default function EurekaLegalPage() {
                 }}
             >
                 <div
-                    style={{ maxWidth: "1100px", margin: "0 auto", padding: "64px 32px 52px" }}
-                    className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                    style={{
+                        maxWidth: "1100px",
+                        margin: "0 auto",
+                        padding: "clamp(36px, 6vw, 64px) clamp(16px, 4vw, 32px) clamp(32px, 5vw, 52px)",
+                        opacity: visible ? 1 : 0,
+                        transform: visible ? "translateY(0)" : "translateY(12px)",
+                        transition: "opacity 0.7s ease, transform 0.7s ease",
+                    }}
                 >
                     <div
-                        className="inline-block mb-4 text-xs font-semibold rounded-full px-3 py-1"
                         style={{
+                            display: "inline-block",
+                            marginBottom: "14px",
+                            fontSize: "11px",
+                            fontWeight: 600,
+                            borderRadius: "100px",
+                            padding: "4px 12px",
                             background: `rgba(245,122,85,0.12)`,
                             color: COLORS.accent,
                             border: `1px solid rgba(245,122,85,0.3)`,
@@ -648,18 +867,27 @@ export default function EurekaLegalPage() {
                     <h1
                         style={{
                             fontFamily: "'Playfair Display', Georgia, serif",
-                            fontSize: "clamp(32px, 5vw, 52px)",
+                            fontSize: "clamp(28px, 6vw, 52px)",
                             fontWeight: 700,
                             color: COLORS.primaryText,
                             lineHeight: 1.15,
-                            marginBottom: "16px",
+                            marginBottom: "14px",
                         }}
                     >
-                        {activeTab === "Privacy Policy"
-                            ? <>Privacy <em style={{ color: COLORS.accent, fontStyle: "italic" }}>Policy</em></>
-                            : <>Terms of <em style={{ color: COLORS.accent, fontStyle: "italic" }}>Service</em></>}
+                        {activeTab === "Privacy Policy" ? (
+                            <>Privacy <em style={{ color: COLORS.accent, fontStyle: "italic" }}>Policy</em></>
+                        ) : (
+                            <>Terms of <em style={{ color: COLORS.accent, fontStyle: "italic" }}>Service</em></>
+                        )}
                     </h1>
-                    <p style={{ color: COLORS.secondaryText, fontSize: "15px", maxWidth: "540px", lineHeight: 1.7 }}>
+                    <p
+                        style={{
+                            color: COLORS.secondaryText,
+                            fontSize: "clamp(13px, 2.5vw, 15px)",
+                            maxWidth: "540px",
+                            lineHeight: 1.7,
+                        }}
+                    >
                         {activeTab === "Privacy Policy"
                             ? "How Eureka Technologies Limited collects, uses, and protects your personal data across EurekaNetwork and EurekaNow."
                             : "The rules and responsibilities that govern your use of EurekaNetwork, EurekaNow, and all Eureka Technologies Limited services."}
@@ -669,36 +897,52 @@ export default function EurekaLegalPage() {
 
             {/* ── MAIN LAYOUT ── */}
             <div
-                style={{ maxWidth: "1100px", margin: "0 auto", padding: "48px 32px 80px" }}
-                className="flex gap-10 items-start"
+                style={{
+                    maxWidth: "1100px",
+                    margin: "0 auto",
+                    padding: "clamp(24px, 4vw, 48px) clamp(16px, 4vw, 32px) 80px",
+                    display: "flex",
+                    gap: "40px",
+                    alignItems: "flex-start",
+                }}
             >
-
-                {/* ── SIDEBAR TOC ── */}
+                {/* ── SIDEBAR TOC (desktop only) ── */}
                 <aside
-                    className="hidden lg:block flex-shrink-0"
-                    style={{ width: "220px", position: "sticky", top: "88px" }}
+                    className="sidebar-desktop"
+                    style={{ width: "220px", flexShrink: 0, position: "sticky", top: "76px" }}
                 >
                     <p
-                        className="text-xs font-semibold mb-4"
                         style={{
                             color: COLORS.mutedBlue,
+                            fontSize: "11px",
+                            fontWeight: 600,
                             letterSpacing: "0.12em",
                             textTransform: "uppercase",
+                            marginBottom: "14px",
                         }}
                     >
                         On this page
                     </p>
-                    <nav className="flex flex-col gap-1">
+                    <nav style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                         {TOC[activeTab].map((item, i) => (
                             <a
                                 key={item}
                                 href={`#section-${i + 1}`}
-                                className="text-xs py-1.5 px-3 rounded-md transition-all duration-150"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.getElementById(`section-${i + 1}`);
+                                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
                                 style={{
                                     color: COLORS.mutedBlue,
                                     textDecoration: "none",
+                                    fontSize: "12px",
+                                    padding: "6px 12px",
+                                    borderRadius: "6px",
                                     borderLeft: `2px solid transparent`,
                                     display: "block",
+                                    transition: "all 0.15s",
+                                    cursor: "pointer",
                                 }}
                                 onMouseEnter={(e) => {
                                     e.currentTarget.style.color = COLORS.accent;
@@ -717,13 +961,15 @@ export default function EurekaLegalPage() {
                         ))}
                     </nav>
 
-                    {/* Switch doc link */}
                     <div
-                        className="mt-8 p-3 rounded-lg text-xs"
                         style={{
+                            marginTop: "28px",
+                            padding: "12px",
+                            borderRadius: "10px",
                             background: COLORS.lightBlue,
                             border: `1px solid ${COLORS.border}`,
                             color: COLORS.mutedBlue,
+                            fontSize: "12px",
                         }}
                     >
                         Also read our{" "}
@@ -749,30 +995,45 @@ export default function EurekaLegalPage() {
                 {/* ── CONTENT ── */}
                 <main
                     ref={contentRef}
-                    className="flex-1 min-w-0"
                     style={{
+                        flex: 1,
+                        minWidth: 0,
                         background: COLORS.lightBlue,
                         border: `1px solid ${COLORS.border}`,
                         borderRadius: "16px",
-                        padding: "clamp(24px, 5vw, 52px)",
+                        padding: "clamp(20px, 5vw, 52px)",
                     }}
                 >
                     {/* Tab header row */}
                     <div
-                        className="flex items-center justify-between flex-wrap gap-4 mb-8 pb-6"
-                        style={{ borderBottom: `1px solid ${COLORS.border}` }}
+                        style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            justifyContent: "space-between",
+                            flexWrap: "wrap",
+                            gap: "12px",
+                            marginBottom: "28px",
+                            paddingBottom: "20px",
+                            borderBottom: `1px solid ${COLORS.border}`,
+                        }}
                     >
                         <div>
                             <p
-                                className="text-xs font-semibold mb-1"
-                                style={{ color: COLORS.accent, letterSpacing: "0.12em", textTransform: "uppercase" }}
+                                style={{
+                                    fontSize: "11px",
+                                    fontWeight: 600,
+                                    color: COLORS.accent,
+                                    letterSpacing: "0.12em",
+                                    textTransform: "uppercase",
+                                    marginBottom: "4px",
+                                }}
                             >
                                 Eureka Technologies Limited
                             </p>
                             <h2
                                 style={{
                                     fontFamily: "'Playfair Display', Georgia, serif",
-                                    fontSize: "22px",
+                                    fontSize: "clamp(18px, 4vw, 22px)",
                                     fontWeight: 700,
                                     color: COLORS.primaryText,
                                     margin: 0,
@@ -781,26 +1042,32 @@ export default function EurekaLegalPage() {
                                 {activeTab}
                             </h2>
                         </div>
-                        <div className="flex gap-2">
+                        <div className="hero-badges" style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                             <div
-                                className="text-xs px-3 py-1 rounded-full"
                                 style={{
+                                    fontSize: "11px",
+                                    padding: "4px 10px",
+                                    borderRadius: "100px",
                                     background: `rgba(76,175,80,0.1)`,
                                     color: "#4CAF50",
                                     border: "1px solid rgba(76,175,80,0.25)",
+                                    whiteSpace: "nowrap",
                                 }}
                             >
                                 ✓ Current version
                             </div>
                             <div
-                                className="text-xs px-3 py-1 rounded-full"
                                 style={{
+                                    fontSize: "11px",
+                                    padding: "4px 10px",
+                                    borderRadius: "100px",
                                     background: COLORS.darkGray,
                                     color: COLORS.mutedBlue,
                                     border: `1px solid ${COLORS.border}`,
+                                    whiteSpace: "nowrap",
                                 }}
                             >
-                                Updated Jun 2025
+                                Updated Jun 2026
                             </div>
                         </div>
                     </div>
@@ -808,43 +1075,50 @@ export default function EurekaLegalPage() {
                     {/* Animated content swap */}
                     <div
                         key={activeTab}
-                        style={{
-                            animation: "fadeIn 0.3s ease",
-                        }}
+                        style={{ animation: "fadeIn 0.3s ease" }}
                     >
                         <style>{`
-              @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(8px); }
-                to { opacity: 1; transform: translateY(0); }
-              }
-            `}</style>
+                            @keyframes fadeIn {
+                                from { opacity: 0; transform: translateY(8px); }
+                                to { opacity: 1; transform: translateY(0); }
+                            }
+                        `}</style>
                         {activeTab === "Privacy Policy" ? <PrivacyPolicy /> : <TermsOfService />}
                     </div>
 
                     {/* Bottom CTA */}
                     <div
-                        className="mt-10 p-6 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                         style={{
+                            marginTop: "40px",
+                            padding: "clamp(16px, 4vw, 24px)",
+                            borderRadius: "12px",
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "16px",
                             background: `rgba(245,122,85,0.07)`,
                             border: `1px solid rgba(245,122,85,0.2)`,
                         }}
                     >
                         <div>
-                            <p className="font-semibold text-sm mb-1" style={{ color: COLORS.primaryText }}>
+                            <p style={{ fontWeight: 600, fontSize: "14px", color: COLORS.primaryText, marginBottom: "4px" }}>
                                 Questions about this document?
                             </p>
-                            <p className="text-xs" style={{ color: COLORS.mutedBlue }}>
+                            <p style={{ fontSize: "12px", color: COLORS.mutedBlue }}>
                                 Our team is happy to clarify anything.
                             </p>
                         </div>
                         <a
-                            href="mailto:legal@eurekatech.com"
-                            className="text-sm font-semibold px-5 py-2.5 rounded-lg flex-shrink-0"
+                            href="mailto:legal@eureka-technologies.co.uk"
                             style={{
                                 background: COLORS.accent,
                                 color: "#fff",
                                 textDecoration: "none",
                                 display: "inline-block",
+                                fontSize: "13px",
+                                fontWeight: 600,
+                                padding: "10px 20px",
+                                borderRadius: "8px",
+                                alignSelf: "flex-start",
                             }}
                         >
                             Contact Legal Team →
@@ -853,10 +1127,45 @@ export default function EurekaLegalPage() {
                 </main>
             </div>
 
-            {/* ── FOOTER ── */}
-            <footer>
-                <Footer />
-            </footer>
+            {/* ── MOBILE TOC FAB ── */}
+            <button
+                className="toc-fab"
+                onClick={() => setTocOpen(true)}
+                style={{
+                    position: "fixed",
+                    bottom: "24px",
+                    right: "20px",
+                    zIndex: 150,
+                    width: "52px",
+                    height: "52px",
+                    borderRadius: "50%",
+                    background: COLORS.accent,
+                    border: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 4px 20px rgba(245,122,85,0.45)",
+                    flexDirection: "column",
+                    gap: "4px",
+                    padding: 0,
+                }}
+                aria-label="Open table of contents"
+            >
+                {/* Hamburger lines */}
+                <span style={{ display: "block", width: "18px", height: "2px", background: "#fff", borderRadius: 2 }} />
+                <span style={{ display: "block", width: "14px", height: "2px", background: "#fff", borderRadius: 2 }} />
+                <span style={{ display: "block", width: "18px", height: "2px", background: "#fff", borderRadius: 2 }} />
+            </button>
+
+            {/* ── MOBILE TOC DRAWER ── */}
+            {tocOpen && (
+                <MobileTOC
+                    activeTab={activeTab}
+                    onClose={() => setTocOpen(false)}
+                    handleTabSwitch={handleTabSwitch}
+                />
+            )}
         </div>
     );
 }
