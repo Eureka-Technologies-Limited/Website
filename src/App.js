@@ -20,8 +20,8 @@ export default function App() {
         <Route path="/eureka-consult" element={<EurekaConsultPage />} />
         <Route path="/it-consultancy" element={<ITConsultancyPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/legal" element={<LegalPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )
