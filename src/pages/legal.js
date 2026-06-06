@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const COLORS = {
     darkBlue: "#0b1a30",
@@ -624,7 +626,9 @@ function MobileTOC({ activeTab, onClose, handleTabSwitch }) {
 
 // ── MAIN PAGE ───────────────────────────────────────────────────
 export default function EurekaLegalPage() {
-    const [activeTab, setActiveTab] = useState("Privacy Policy");
+    const location = useLocation();
+    const initialTab = location.state?.tab ?? "Privacy Policy";
+    const [activeTab, setActiveTab] = useState(initialTab);
     const [scrolled, setScrolled] = useState(false);
     const [visible, setVisible] = useState(false);
     const [tocOpen, setTocOpen] = useState(false);
@@ -1166,6 +1170,9 @@ export default function EurekaLegalPage() {
                     handleTabSwitch={handleTabSwitch}
                 />
             )}
+
+            {/* ── FOOTER ── */}
+            <Footer />
         </div>
     );
 }
