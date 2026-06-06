@@ -8,6 +8,7 @@ import EurekaConsultPage from "./pages/eureka-consult";
 import ITConsultancyPage from "./pages/it-consultancy";
 import NotFound from "./pages/NotFound";
 import ContactPage from "./pages/contact";
+import LegalPage from "./pages/legal";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/it-consultancy" element={<ITConsultancyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/legal" element={<LegalPage />} />
       </Routes>
     </Router>
   )

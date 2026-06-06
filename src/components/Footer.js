@@ -137,9 +137,13 @@ export default function Footer() {
 
                         {/* Legal Links */}
                         <div className="flex items-center gap-4 text-xs text-slate-500">
-                            <button className="hover:text-slate-300 transition-colors">Privacy Policy</button>
+                            <button className="hover:text-slate-300 transition-colors" onClick={() => window.open('/legal', '_blank')}>
+                                Privacy Policy
+                            </button>
                             <span>·</span>
-                            <button className="hover:text-slate-300 transition-colors">Terms of Service</button>
+                            <button className="hover:text-slate-300 transition-colors" onClick={() => window.open('/legal', '_blank')}>
+                                Terms of Service
+                            </button>
                         </div>
                     </div>
                 </div>
