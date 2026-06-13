@@ -27,7 +27,7 @@ export default function Footer() {
                         <h4 className="text-white font-semibold mb-4 text-sm">Products</h4>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <button 
+                                <button
                                     onClick={() => navigate('/eureka-now')}
                                     className="text-slate-400 hover:text-cyan-400 transition-colors"
                                 >
@@ -35,7 +35,7 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
-                                <button 
+                                <button
                                     onClick={() => navigate('/')}
                                     className="text-slate-400 hover:text-purple-400 transition-colors"
                                 >
@@ -50,7 +50,7 @@ export default function Footer() {
                         <h4 className="text-white font-semibold mb-4 text-sm">Services</h4>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <button 
+                                <button
                                     onClick={() => navigate('/eureka-consult')}
                                     className="text-slate-400 hover:text-cyan-400 transition-colors"
                                 >
@@ -58,7 +58,7 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
-                                <button 
+                                <button
                                     onClick={() => navigate('/contact')}
                                     className="text-slate-400 hover:text-slate-300 transition-colors"
                                 >
@@ -66,7 +66,7 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
-                                <a 
+                                <a
                                     href="https://eureka-now-nine.vercel.app/"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -102,8 +102,8 @@ export default function Footer() {
                             <li>Company No: SC836082</li>
                             <li>Registered in Scotland</li>
                             <li className="pt-2 border-t border-slate-700">
-                                <a 
-                                    href="https://eureka-technologies.co.uk" 
+                                <a
+                                    href="https://eureka-technologies.co.uk"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-cyan-400 hover:text-cyan-300 transition-colors"
@@ -126,7 +126,7 @@ export default function Footer() {
                         {/* Social Links */}
                         <div className="flex items-center gap-4">
                             <span className="text-xs text-slate-600">Follow us:</span>
-                            <button 
+                            <button
                                 onClick={() => window.open('https://www.instagram.com/eurekatechnologiesltd/', '_blank')}
                                 className="text-slate-500 hover:text-cyan-400 transition-colors p-2"
                                 aria-label="Instagram"
@@ -137,11 +137,17 @@ export default function Footer() {
 
                         {/* Legal Links */}
                         <div className="flex items-center gap-4 text-xs text-slate-500">
-                            <button className="hover:text-slate-300 transition-colors" onClick={() => window.open('/legal', '_blank')}>
+                            <button
+                                className="hover:text-slate-300 transition-colors"
+                                onClick={() => navigate('/legal', { state: { tab: 'Privacy Policy' } })}
+                            >
                                 Privacy Policy
                             </button>
                             <span>·</span>
-                            <button className="hover:text-slate-300 transition-colors" onClick={() => window.open('/legal', '_blank')}>
+                            <button
+                                className="hover:text-slate-300 transition-colors"
+                                onClick={() => navigate('/legal', { state: { tab: 'Terms of Service' } })}
+                            >
                                 Terms of Service
                             </button>
                         </div>

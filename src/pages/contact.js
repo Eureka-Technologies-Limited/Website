@@ -17,6 +17,14 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+const PRODUCT_LABELS = {
+  general: "General Inquiry",
+  eurekanow: "EurekaNow Service Desk",
+  eurekaconsult: "EurekaConsult Services",
+  custom: "Custom Project",
+  partnership: "Partnership Opportunity",
+};
+
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "", product: "general" });
   const [submitted, setSubmitted] = useState(false);
@@ -32,21 +40,41 @@ export default function ContactPage() {
     setError("");
     setLoading(true);
 
+    const sharedData = {
+      Name: form.name,
+      Email_Address: form.email,
+      Message: form.message,
+      Product: PRODUCT_LABELS[form.product] ?? form.product,
+    };
+
     try {
-      await fetch("https://email-notifications-server.vercel.app/api/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          template: "eureka-contact-form",
-          data: {
-            name: form.name,
-            email: form.email,
-            message: form.message,
-            product: form.product,
-            toAddress: "info@eureka-technologies.co.uk"
-          },
+      await Promise.all([
+        // Internal notification → goes to the Eureka team
+        fetch("https://email-service.eureka-technologies.co.uk/api", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            template: "eureka-contact-form",
+            data: {
+              ...sharedData,
+              toAddress: "info@eureka-technologies.co.uk",
+            },
+          }),
         }),
-      });
+
+        // User confirmation → goes back to the sender
+        fetch("https://email-service.eureka-technologies.co.uk/api", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            template: "eureka-contact-confirmation",
+            data: {
+              ...sharedData,
+              toAddress: form.email,
+            },
+          }),
+        }),
+      ]);
 
       setForm({ name: "", email: "", message: "", product: "general" });
       setSubmitted(true);
@@ -106,7 +134,6 @@ export default function ContactPage() {
         animate="visible"
         variants={containerVariants}
       >
-        {/* Background elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />

@@ -195,7 +195,7 @@ export default function EurekaNowLandingPage() {
 
         <motion.div variants={itemVariants} className="grid gap-4">
           {[
-            { icon: Layers, title: "Unified Workspace", desc: "Manage IT, clinical, engineering, and HR in one platform" },
+            { icon: Layers, title: "Unified Workspace", desc: "Manage IT, engineering, and HR in one platform" },
             { icon: Zap, title: "Lightning Fast", desc: "Optimized for speed with real-time updates and seamless collaboration" },
             { icon: Settings, title: "Infinitely Customizable", desc: "Build workflows that match your exact process requirements" },
             { icon: Shield, title: "Enterprise Security", desc: "SOC 2 compliant with role-based access and audit trails" }
@@ -343,15 +343,6 @@ export default function EurekaNowLandingPage() {
           className="grid md:grid-cols-2 gap-8"
         >
           {[
-            {
-              title: "Healthcare & Clinical Operations",
-              points: [
-                "Patient request management",
-                "Clinical workflow tracking",
-                "Secure audit trails",
-                "HIPAA-compliant workflows"
-              ]
-            },
             {
               title: "Enterprise IT",
               points: [
