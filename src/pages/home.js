@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+import eurekaNowLogo from '../assets/EurekaNow-Logo.svg';
+import eurekaConsultLogo from '../assets/EurekaConsult-Logo.svg';
 import { motion } from "framer-motion";
 import { Card, CardContent } from '../components/ui/card';
 import { EarlyAccessModal } from '../components/EarlyAccessModal';
@@ -187,6 +189,7 @@ export default function HomePage() {
                 name: "EurekaNow",
                 status: "Coming Soon",
                 icon: Layers,
+                logo: eurekaNowLogo,
                 description: "Enterprise service desk platform for IT, clinical ops, engineering, and HR.",
                 features: [
                   "Multi-channel ticket ingestion",
@@ -202,6 +205,7 @@ export default function HomePage() {
                 name: "EurekaConsult",
                 status: "Available Now",
                 icon: Users,
+                logo: eurekaConsultLogo,
                 description: "Expert digital transformation services. Custom development, infrastructure, DevOps, and strategic guidance.",
                 features: [
                   "IT infrastructure strategy",
@@ -210,13 +214,14 @@ export default function HomePage() {
                   "Security & compliance advisory",
                   "Team augmentation & training"
                 ],
-                color: "cyan",
+                color: "purple",
                 cta: () => navigate('/eureka-consult')
               },
               {
                 name: "EurekaInsights",
                 status: "Coming Soon",
                 icon: BarChart3,
+                logo: null,
                 description: "AI-powered analytics platform delivering actionable insights across your entire ecosystem.",
                 features: [
                   "Unified data model",
@@ -270,10 +275,13 @@ export default function HomePage() {
                 >
                   <CardContent className="p-8">
                     <div className="flex items-start justify-between mb-4">
-                      <app.icon className={`w-10 h-10 ${app.color === 'cyan' ? 'text-cyan-400' : 'text-purple-400'}`} />
+                      {app.logo
+                        ? <img src={app.logo} alt={app.name} className="w-12 h-12 rounded-xl" />
+                        : <app.icon className={`w-10 h-10 ${app.color === 'cyan' ? 'text-cyan-400' : 'text-purple-400'}`} />
+                      }
                       <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
                         app.status === 'Available Now'
-                          ? 'bg-cyan-500/20 text-cyan-300'
+                          ? 'bg-teal-500/20 text-teal-300'
                           : 'bg-purple-500/20 text-purple-300'
                       }`}>
                         {app.status}
